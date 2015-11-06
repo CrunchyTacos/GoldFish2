@@ -12,7 +12,7 @@ public class MainRequestQueue extends Application {
     private static MainRequestQueue mMainRequestQueue;
 
 
-    public static final String TAG = MainRequestQueue.class.getName();
+    private static final String TAG = MainRequestQueue.class.getName();
     @Override
     public void onCreate(){
         super.onCreate();
@@ -24,7 +24,7 @@ public class MainRequestQueue extends Application {
         return mMainRequestQueue;
     }
 
-    public RequestQueue getRequestQueue() {
+    private RequestQueue getRequestQueue() {
         return mRequestQueue;
     }
 

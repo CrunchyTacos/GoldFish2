@@ -6,7 +6,7 @@ import org.json.JSONArray;
  * Created by Zovin on 10/7/2015.
  * These are the properties of the acquired stories
  */
-public class Story {
+class Story {
     private String title;
     private String by;
     private String score;
