@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5sp">
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="Hello"
+            android:padding="10dp"
+            android:layout_marginLeft="2sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="3sp"
+            android:duplicateParentState="true"/>
+
+        <TextView
+            android:id="@+id/by"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:textSize="12sp"
+            android:text=""
+            android:layout_marginLeft="4sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="3sp"
+            android:duplicateParentState="true"/>
+    <!--<TextView
+        android:id="@+id/score"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:textSize="12sp"
+        android:text="score"
+        android:layout_marginLeft="4sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginBottom="3sp"
+        android:duplicateParentState="true"/>-->
+    </LinearLayout>

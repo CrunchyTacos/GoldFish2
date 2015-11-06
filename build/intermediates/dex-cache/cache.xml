@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/david/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.18/38da306aafee11459cd935a01d2c92a98dc670a4/library-1.0.18.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="38da306aafee11459cd935a01d2c92a98dc670a4">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/library-1.0.18-b81ea53ec3eda5fb9c9d43ed47587be4ef334752.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-da8a2155adf244c85c209f65bc2c3c50d5282caa.jar" />
+    </item>
+    <item
+        jar="/home/david/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-e7eeb93b02c46beadba37c7cf2880e3f1b58004e.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/classes-bdaff2b173a5b181e3aaf82e09a48bc4935a3a27.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/classes-3d822e91a853195871eb27ef50e4cde7c6a9bbd2.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/classes-be1b604595d2227002f0cb6b6e69cdaf9f6e8dbf.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/GoldFish/app/libs/realm-0.83.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="fcc995aa3a075352049ed77afb34c61559a73931">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/realm-0.83.0-8392a5dd48d8d4ec98ce49dc54b43e34555ad831.jar" />
+    </item>
+
+</items>
