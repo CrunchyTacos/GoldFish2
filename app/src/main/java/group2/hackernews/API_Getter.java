@@ -33,6 +33,10 @@ public class API_Getter extends AppCompatActivity {
         this.topList = view;
         topAdapter = new StoryListAdapter(topList.getContext(), R.layout.list_item, stories);
     }
+    //Empty for testing
+    public API_Getter(){
+        //Do Nothing
+    }
 
     //Gets the JSON Array filled with article ID's depending on the type of post.  ie Top, Show, Ask...
     public void use_url_to_get_IDArray_then_process(String source) {
@@ -100,32 +104,37 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonObjectRequest);
     }
 
-    private Story fill_story(JSONObject obj){
+    public Story fill_story(JSONObject obj){
         Story story = new Story();
-        try {
-            //This is for normal stories
-            story.setTitle(obj.getString("title"));
-            story.setBy(obj.getString("by"));
-            story.setScore(Integer.toString(obj.getInt("score")));
-        } catch (JSONException e) {
-            //This is for comments due to comments having no title
-            try {
-                story.setTitle(obj.getString("text"));
-                story.setBy(obj.getString("by"));
-            } catch (JSONException e1) {
-                e1.printStackTrace();
-            }
-            e.printStackTrace();
-        }
-        try {
 
-            story.setUri(obj.getString("url"));
-            story.setType(obj.getString("type"));
-            story.setKids(obj.getJSONArray("kids"));
-            story.setText(obj.getString("text"));
+        try {
+            if(obj.getString("type").equals("comment")){
+                try {
+                    story.setTitle(obj.getString("text"));
+                    story.setBy(obj.getString("by"));
+                    story.setKids(obj.getJSONArray("kids"));
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
+            } else{
+                //This is for normal stories
+                try {
+                    story.setScore(obj.getString("score"));
+                    story.setBy(obj.getString("by"));
+                    story.setTitle(obj.getString("title"));
+                    story.setUri(obj.getString("url"));
+                    story.setType(obj.getString("type"));
+                    story.setKids(obj.getJSONArray("kids"));
+                    story.setText(obj.getString("text"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         return story;
     }
 
