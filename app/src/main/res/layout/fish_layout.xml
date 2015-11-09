@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created By: Zovin Khanmohammed -->
+<!-- List Item Layout for fish articles -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/lay">
+
+
+        <ImageView
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:id="@+id/image"
+            android:contentDescription="@string/fish"
+            android:src="@drawable/fish_moving_small"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:minHeight="42dp"
+            android:minWidth="42dp" />
+</RelativeLayout>

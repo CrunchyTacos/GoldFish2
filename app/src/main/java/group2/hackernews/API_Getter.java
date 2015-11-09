@@ -3,6 +3,7 @@ package group2.hackernews;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 
@@ -20,17 +21,26 @@ import java.util.ArrayList;
 
 /**
  * Created by david on 10/15/15.
+ * modifieds by ZK
  */
 public class API_Getter extends AppCompatActivity {
 
     private MainRequestQueue getter = MainRequestQueue.getInstance();
-    private StoryListAdapter topAdapter;
+    private FishListAdapter topAdapter;
     private ArrayList<Story> stories = new ArrayList<>();
     private String title_url = "https://hacker-news.firebaseio.com/v0/item/";
     private ListView topList;
-    public API_Getter(ListView view){
+    public API_Getter(ListView view/*, int viewOpt*/){
         this.topList = view;
-        topAdapter = new StoryListAdapter(topList.getContext(), R.layout.list_item, stories);
+
+        // I'm trying to modulize the adapter to work with the redesign - ZK
+        /*switch (viewOpt) {
+            case 0:
+                topAdapter = new StoryListAdapter(topList.getContext(), R.layout.list_item, stories);
+                break;
+            case 1:*/
+                topAdapter = new FishListAdapter(topList.getContext(), R.layout.fish_layout, stories);
+        /*}*/
     }
 
     //Gets the JSON Array filled with article ID's depending on the type of post.  ie Top, Show, Ask...
@@ -130,7 +140,7 @@ public class API_Getter extends AppCompatActivity {
 
     public void clear_processing(){
         getter.cancel();
-        topAdapter.clear();
+//        topAdapter.clear();
         topAdapter.notifyDataSetChanged();
     }
 }

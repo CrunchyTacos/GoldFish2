@@ -14,11 +14,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ListView;
 
@@ -26,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class MainActivity extends AppCompatActivity {
@@ -64,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
         topList.setClickable(true);
 
         //What the item does when the view is pressed and held
-        topList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        /*topList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            //Moved to Menu Option selected
 
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
@@ -82,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             }
-        });
+        });*/
 
         //What the item does when its a quick push
         topList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -99,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
                     browser1(o.getUri());
             }
         });
+
+        //Give list items ability to create context Menu - ZK
+        registerForContextMenu(topList);
+
         progressDialog.dismiss();
     }
 
@@ -125,13 +136,42 @@ public class MainActivity extends AppCompatActivity {
 
         //If we add more options in the pulldown menu more cases will be added
         switch (item.getItemId()) {
-            case 0:
+            case 0: // Login menu option selected
                 browser1("https://news.ycombinator.com/login?goto=news");
                 return true;
+            case R.id.story_changer: //Cleaned up button changer to look nice with other menu options (Originally David, mod Zovin
+                processor.clear_processing();
+                switch (story_tracker){
+                    case 1:
+                        processor.use_url_to_get_IDArray_then_process(askStories);
+                        story_tracker++;
+                        item.setTitle("Ask");
+                        break;
+                    case 2:
+                        processor.use_url_to_get_IDArray_then_process(jobStories);
+                        story_tracker++;
+                        item.setTitle("Jobs");
+                        break;
+                    case 3:
+                        processor.use_url_to_get_IDArray_then_process(newStories);
+                        story_tracker++;
+                        item.setTitle("New");
+                        break;
+                    default:
+                        processor.use_url_to_get_IDArray_then_process(topStories);
+                        story_tracker = 1;
+                        item.setTitle("Top");
+                        break;
+                }
+                return super.onOptionsItemSelected(item);
 
+            default:
+                Toast.makeText(getApplicationContext(), "I don't know what you pressed", Toast.LENGTH_LONG).show();
+                break;
         }
 
-        //Button to change the story type
+        // This code was moved to the switch case
+        /*//Button to change the story type
         if(item.getItemId() == R.id.story_changer){
             processor.clear_processing();
             if(story_tracker == 1){
@@ -154,8 +194,91 @@ public class MainActivity extends AppCompatActivity {
                 story_tracker = 1;
                 item.setTitle("Top");
             }
-        }
+        }*/
+        return onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
+    }
+
+    /*
+    Sets the layout for the context menu created by longpresses on list items
+    Overrided by Zovin
+     */
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        if(v.getId() == R.id.list){ //Check if list item is chosen
+            //Setup to access list item information
+            ListView listView = (ListView) v;
+            AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
+
+            //Gets the story object at the selected item.
+            Story storyItem = (Story) listView.getItemAtPosition(adapterContextMenuInfo.position);
+
+            //Setup to manipulate context menu layout
+            LayoutInflater layoutInflater = this.getLayoutInflater();
+            View header = layoutInflater.inflate(R.layout.storyitem_contextmenu, null);
+
+            //Get the xml objects from the context menu header
+            TextView title  = (TextView) header.findViewById(R.id.title);
+            TextView by     = (TextView) header.findViewById(R.id.by);
+            TextView score  = (TextView) header.findViewById(R.id.score);
+
+            //Set the xml object values
+            title.setText(storyItem.getTitle());
+            by.setText(storyItem.getBy());
+            score.setText(storyItem.getScore());
+
+            //Set context menu properties
+            menu.setHeaderView(header);
+            menu.add(0, 10, 0, "View " + (storyItem.getKids() == null ? "0" : storyItem.getKids().length()) + " Comments"); //Comments item selection is 10
+            menu.add(0, 11, 1, "Up Vote"); // Up Vote item selection is 11
+            menu.add(1, 12, 2, "Open in Browser"); // Browser open is 12
+
+            //Inflate the menu into view
+            MenuInflater menuInflater = getMenuInflater();
+            menuInflater.inflate(R.menu.blank_context_menu, menu);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        // Setup to get information for item, especially for context menu option selections
+        AdapterView.AdapterContextMenuInfo adapterContextMenuInfo;
+        adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        //Decide what to do
+        switch (item.getItemId()){
+            case 10: // View comments option selected
+                //Get the story, create the Intent, put the comment id's into the intent,
+                //start the comment activity with the intent
+                Toast.makeText(getApplicationContext(), "Opening Comments",Toast.LENGTH_LONG).show();
+                Story story_item = (Story) topList.getItemAtPosition(adapterContextMenuInfo.position);
+                String string = story_item.getKids().toString();
+
+                intent = new Intent(MainActivity.this, CommentActivity.class);
+
+                if (story_item.getUri() == null)
+                    Toast.makeText(getApplicationContext(), "Can't open comments", Toast.LENGTH_LONG).show();
+
+                intent.putExtra("kids", string);
+                startActivity(intent);
+                return true;
+            case 11: // Up vote option selected
+                Toast.makeText(getApplicationContext(), "Up Vote not made yet", Toast.LENGTH_LONG).show();
+                return true;
+            case 12: // Open in browser selected
+                Story story_item1 = (Story) topList.getItemAtPosition(adapterContextMenuInfo.position);
+                intent = new Intent(MainActivity.this, CommentActivity.class);
+
+                if (story_item1.getUri() == null)
+                    Toast.makeText(getApplicationContext(), "Can't open article", Toast.LENGTH_LONG).show();
+                else
+                    browser1(story_item1.getUri());
+                return true;
+            default:
+                Toast.makeText(getApplicationContext(), "I don't know what you pressed", Toast.LENGTH_LONG).show();
+                break;
+        }
+        return super.onContextItemSelected(item);
     }
 }
