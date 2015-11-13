@@ -2,14 +2,18 @@ package group2.hackernews;
 
 import android.content.Context;
 import android.text.Html;
+import android.text.Layout;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -37,8 +41,23 @@ public class FishListAdapter extends ArrayAdapter<Story> {
             v = vi.inflate(R.layout.fish_layout, null);
         }
 
+        DisplayMetrics displayMetrics = new DisplayMetrics();
         Story o = stories.get(position);
         ImageView fish = (ImageView) v.findViewById(R.id.image);
+        RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.lay);
+
+        int width = displayMetrics.widthPixels;
+        width = width/3 - 42;
+
+        if (Integer.parseInt(o.getScore()) < 250) {
+            layout.setGravity(RelativeLayout.ALIGN_PARENT_RIGHT);
+            fish.setPadding((Integer.parseInt(o.getScore()) / width), 0, 0, 0);
+        } else if (Integer.parseInt(o.getScore()) < 500){
+            layout.setGravity(RelativeLayout.CENTER_IN_PARENT);
+            fish.setPadding((Integer.parseInt(o.getScore()) / width), 0, 0, 0);
+        } else{
+            layout.setGravity(RelativeLayout.ALIGN_PARENT_LEFT);
+        }
 
         return v;
     }
