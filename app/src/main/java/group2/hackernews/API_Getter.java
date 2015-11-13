@@ -26,21 +26,21 @@ import java.util.ArrayList;
 public class API_Getter extends AppCompatActivity {
 
     private MainRequestQueue getter = MainRequestQueue.getInstance();
-    private FishListAdapter topAdapter;
+    private BaseAdapter topAdapter;
     private ArrayList<Story> stories = new ArrayList<>();
     private String title_url = "https://hacker-news.firebaseio.com/v0/item/";
     private ListView topList;
-    public API_Getter(ListView view/*, int viewOpt*/){
+    public API_Getter(ListView view, int viewOpt){
         this.topList = view;
 
         // I'm trying to modulize the adapter to work with the redesign - ZK
-        /*switch (viewOpt) {
+        switch (viewOpt) {
             case 0:
                 topAdapter = new StoryListAdapter(topList.getContext(), R.layout.list_item, stories);
                 break;
-            case 1:*/
+            default:
                 topAdapter = new FishListAdapter(topList.getContext(), R.layout.fish_layout, stories);
-        /*}*/
+        }
     }
 
     //Gets the JSON Array filled with article ID's depending on the type of post.  ie Top, Show, Ask...
@@ -85,7 +85,7 @@ public class API_Getter extends AppCompatActivity {
                 //get the list ready to populate
                 topList.setAdapter(topAdapter);
                 Story story = fill_story(response);
-                topAdapter.get_stories().add(story);
+                stories.add(story);
                 topAdapter.notifyDataSetChanged();
             }
         }, new Response.ErrorListener() {
@@ -141,6 +141,7 @@ public class API_Getter extends AppCompatActivity {
     public void clear_processing(){
         getter.cancel();
 //        topAdapter.clear();
+        stories.clear();
         topAdapter.notifyDataSetChanged();
     }
 }

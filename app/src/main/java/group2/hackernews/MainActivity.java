@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         topList = (ListView) findViewById(R.id.list);
 
         //Make a processor and attach the ListView to it
-        processor = new API_Getter(topList);
+        processor = new API_Getter(topList, 1);
 
         //Tell the processor to fill the list with the url.
         processor.use_url_to_get_IDArray_then_process(topStories);
@@ -170,31 +170,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        // This code was moved to the switch case
-        /*//Button to change the story type
-        if(item.getItemId() == R.id.story_changer){
-            processor.clear_processing();
-            if(story_tracker == 1){
-                processor.use_url_to_get_IDArray_then_process(askStories);
-                story_tracker++;
-                item.setTitle("Ask");
-            }
-            else if (story_tracker == 2){
-                processor.use_url_to_get_IDArray_then_process(jobStories);
-                story_tracker++;
-                item.setTitle("Jobs");
-            }
-            else if (story_tracker == 3){
-                processor.use_url_to_get_IDArray_then_process(newStories);
-                story_tracker++;
-                item.setTitle("New");
-            }
-            else {
-                processor.use_url_to_get_IDArray_then_process(topStories);
-                story_tracker = 1;
-                item.setTitle("Top");
-            }
-        }*/
         return onOptionsItemSelected(item);
 
     }
