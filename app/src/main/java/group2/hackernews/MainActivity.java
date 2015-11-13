@@ -130,6 +130,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(browserIntent);
     }
 
+    //share a url and choose sharing method
+    public void share(String url){
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/html");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, url);     //might have to remove uri.parse to just url
+        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+    }
+
     //Commands for the options and toolbar widgets
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -164,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 return super.onOptionsItemSelected(item);
+
 
             default:
                 Toast.makeText(getApplicationContext(), "I don't know what you pressed", Toast.LENGTH_LONG).show();
@@ -207,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
             menu.add(0, 10, 0, "View " + (storyItem.getKids() == null ? "0" : storyItem.getKids().length()) + " Comments"); //Comments item selection is 10
             menu.add(0, 11, 1, "Up Vote"); // Up Vote item selection is 11
             menu.add(1, 12, 2, "Open in Browser"); // Browser open is 12
+            menu.add(0,13,3, "Share"); // Share link
 
             //Inflate the menu into view
             MenuInflater menuInflater = getMenuInflater();
@@ -249,6 +259,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Can't open article", Toast.LENGTH_LONG).show();
                 else
                     browser1(story_item1.getUri());
+
+                return true;
+            case 13: //share
+                Story story_item2 = (Story) topList.getItemAtPosition(adapterContextMenuInfo.position);
+                if (story_item2.getUri() == null)
+                    Toast.makeText(getApplicationContext(), "Nothing to share", Toast.LENGTH_LONG).show();
+                else
+                    share(story_item2.getUri());
                 return true;
             default:
                 Toast.makeText(getApplicationContext(), "I don't know what you pressed", Toast.LENGTH_LONG).show();
