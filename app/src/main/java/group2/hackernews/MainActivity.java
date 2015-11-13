@@ -129,7 +129,15 @@ public class MainActivity extends AppCompatActivity {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(browserIntent);
     }
-
+    //created by Elizabeth Durkin
+     //share a url and choose sharing method
+    public void share(String url){
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/html");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, url);     //might have to remove uri.parse to just url
+        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+    }
+    
     //Commands for the options and toolbar widgets
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
