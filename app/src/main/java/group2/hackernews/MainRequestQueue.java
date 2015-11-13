@@ -33,6 +33,10 @@ public class MainRequestQueue extends Application {
         getRequestQueue().add(req);
     }
 
+    public void test_open_article(){
+        
+    }
+
     public void cancel() {
         mRequestQueue.cancelAll(TAG);
     }
