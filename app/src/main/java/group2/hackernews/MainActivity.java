@@ -35,11 +35,11 @@ import java.util.List;
 @SuppressLint("SetJavaScriptEnabled")
 public class MainActivity extends AppCompatActivity {
 
-    ListView topList;
-    ListView jobList;
-    API_Getter processor;
+    private ListView topList;
+    private ListView jobList;
+    private API_Getter processor;
     private ArrayList<Story> comments = new ArrayList<>();
-    Intent intent;
+    private Intent intent;
     private int story_tracker = 1;
 
     final static String topStories = "https://hacker-news.firebaseio.com/v0/topstories.json";

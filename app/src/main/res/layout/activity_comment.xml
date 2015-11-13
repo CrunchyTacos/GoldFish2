@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="group2.hackernews.CommentActivity">
+    tools:context="group2.hackernews.CommentActivity"
+    android:id="@+id/comment_act">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

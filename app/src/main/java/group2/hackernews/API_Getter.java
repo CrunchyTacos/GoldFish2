@@ -30,7 +30,12 @@ public class API_Getter extends AppCompatActivity {
     private ArrayList<Story> stories = new ArrayList<>();
     private String title_url = "https://hacker-news.firebaseio.com/v0/item/";
     private ListView topList;
+<<<<<<< HEAD
     public API_Getter(ListView view, int viewOpt){
+=======
+
+    public API_Getter(ListView view){
+>>>>>>> master
         this.topList = view;
 
         // I'm trying to modulize the adapter to work with the redesign - ZK
@@ -41,6 +46,10 @@ public class API_Getter extends AppCompatActivity {
             default:
                 topAdapter = new FishListAdapter(topList.getContext(), R.layout.fish_layout, stories);
         }
+    }
+    //Empty for testing
+    public API_Getter(){
+        //Do Nothing
     }
 
     //Gets the JSON Array filled with article ID's depending on the type of post.  ie Top, Show, Ask...
@@ -109,32 +118,37 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonObjectRequest);
     }
 
-    private Story fill_story(JSONObject obj){
+    public Story fill_story(JSONObject obj){
         Story story = new Story();
-        try {
-            //This is for normal stories
-            story.setTitle(obj.getString("title"));
-            story.setBy(obj.getString("by"));
-            story.setScore(Integer.toString(obj.getInt("score")));
-        } catch (JSONException e) {
-            //This is for comments due to comments having no title
-            try {
-                story.setTitle(obj.getString("text"));
-                story.setBy(obj.getString("by"));
-            } catch (JSONException e1) {
-                e1.printStackTrace();
-            }
-            e.printStackTrace();
-        }
-        try {
 
-            story.setUri(obj.getString("url"));
-            story.setType(obj.getString("type"));
-            story.setKids(obj.getJSONArray("kids"));
-            story.setText(obj.getString("text"));
+        try {
+            if(obj.getString("type").equals("comment")){
+                try {
+                    story.setTitle(obj.getString("text"));
+                    story.setBy(obj.getString("by"));
+                    story.setKids(obj.getJSONArray("kids"));
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
+            } else{
+                //This is for normal stories
+                try {
+                    story.setScore(obj.getString("score"));
+                    story.setBy(obj.getString("by"));
+                    story.setTitle(obj.getString("title"));
+                    story.setUri(obj.getString("url"));
+                    story.setType(obj.getString("type"));
+                    story.setKids(obj.getJSONArray("kids"));
+                    story.setText(obj.getString("text"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         return story;
     }
 

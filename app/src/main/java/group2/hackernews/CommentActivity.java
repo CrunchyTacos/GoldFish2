@@ -14,8 +14,8 @@ import org.json.JSONException;
 
 public class CommentActivity extends AppCompatActivity {
 
-    API_Getter processor;
-    ListView commentList;
+    private API_Getter processor;
+    private ListView commentList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +57,7 @@ public class CommentActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

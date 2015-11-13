@@ -10,7 +10,7 @@
     <item
         android:id="@+id/story_changer"
         android:title="Top"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:orderInCategory="0"/>
 
 </menu>
