@@ -35,7 +35,7 @@ public class CommentActivity extends AppCompatActivity {
         try {
             jarray = new JSONArray(list);
             commentList = (ListView) findViewById(R.id.clist);
-            processor = new API_Getter(commentList);
+            processor = new API_Getter(commentList, 0);
             for(int i = 0; i < jarray.length(); i++){
                 try {
                     processor.get_JSON_from_HN_and_set_UI_elements(jarray.getString(i));

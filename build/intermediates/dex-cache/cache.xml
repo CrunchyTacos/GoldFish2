@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
+        jar="C:\Users\Zovin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-e1177518e77d5887a47e6ecc286fce9fdfd8333c.jar" />
+=======
         jar="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -21,15 +28,30 @@
         revision="23.0.0"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
         <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/classes-be1b604595d2227002f0cb6b6e69cdaf9f6e8dbf.jar" />
+>>>>>>> master
     </item>
     <item
-        jar="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\libs\realm-0.83.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="fcc995aa3a075352049ed77afb34c61559a73931">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\pre-dexed\debug\realm-0.83.0-9ab3651ca4ee44678736d598f664bd61aa8fccd0.jar" />
+    </item>
+    <item
+<<<<<<< HEAD
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-da8a2155adf244c85c209f65bc2c3c50d5282caa.jar" />
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-72396e832d7af18b23e51a206e86c6039a7ebe8b.jar" />
     </item>
     <item
+        jar="C:\Users\Zovin\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.18\38da306aafee11459cd935a01d2c92a98dc670a4\library-1.0.18.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="38da306aafee11459cd935a01d2c92a98dc670a4">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\pre-dexed\debug\library-1.0.18-32b73b3cb9d7c5322f5c7f8100416124ddfd1cbd.jar" />
+=======
         jar="/home/david/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -49,15 +71,23 @@
         revision="23.0.0"
         sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
         <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/androidTest/debug/junit-4.12-c0a166162f24ac2a8f667af818374a1160ced3ef.jar" />
+>>>>>>> master
     </item>
     <item
-        jar="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\pre-dexed\debug\classes-83f43d7c5993213abccbc3b26d1ef6970f533c23.jar" />
+    </item>
+    <item
+<<<<<<< HEAD
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/classes-3d822e91a853195871eb27ef50e4cde7c6a9bbd2.jar" />
-    </item>
-    <item
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\pre-dexed\debug\classes-a2d2c6e80bd9ece2650d9c4a908e85c94ec60eab.jar" />
+=======
         jar="/home/david/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -91,13 +121,14 @@
         revision="23.0.0"
         sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
         <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/androidTest/debug/classes-6d162bc23c8fb4b924039d514d53315a804cad96.jar" />
+>>>>>>> master
     </item>
     <item
-        jar="/home/david/AndroidStudioProjects/GoldFish/app/libs/realm-0.83.0.jar"
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="fcc995aa3a075352049ed77afb34c61559a73931">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/pre-dexed/debug/realm-0.83.0-8392a5dd48d8d4ec98ce49dc54b43e34555ad831.jar" />
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish\app\build\intermediates\pre-dexed\debug\classes-f18740a77cad4591a9a89afd1970d5d65f0857e4.jar" />
     </item>
     <item
         jar="/home/david/AndroidStudioProjects/GoldFish/app/build/intermediates/exploded-aar/com.android.support.test/exposed-instrumentation-api-publish/0.4.1/jars/classes.jar"

@@ -3,6 +3,7 @@ package group2.hackernews;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 
@@ -20,18 +21,31 @@ import java.util.ArrayList;
 
 /**
  * Created by david on 10/15/15.
+ * modifieds by ZK
  */
 public class API_Getter extends AppCompatActivity {
 
     private MainRequestQueue getter = MainRequestQueue.getInstance();
-    private StoryListAdapter topAdapter;
+    private BaseAdapter topAdapter;
     private ArrayList<Story> stories = new ArrayList<>();
     private String title_url = "https://hacker-news.firebaseio.com/v0/item/";
     private ListView topList;
+<<<<<<< HEAD
+    public API_Getter(ListView view, int viewOpt){
+=======
 
     public API_Getter(ListView view){
+>>>>>>> master
         this.topList = view;
-        topAdapter = new StoryListAdapter(topList.getContext(), R.layout.list_item, stories);
+
+        // I'm trying to modulize the adapter to work with the redesign - ZK
+        switch (viewOpt) {
+            case 0:
+                topAdapter = new StoryListAdapter(topList.getContext(), R.layout.list_item, stories);
+                break;
+            default:
+                topAdapter = new FishListAdapter(topList.getContext(), R.layout.fish_layout, stories);
+        }
     }
     //Empty for testing
     public API_Getter(){
@@ -80,7 +94,7 @@ public class API_Getter extends AppCompatActivity {
                 //get the list ready to populate
                 topList.setAdapter(topAdapter);
                 Story story = fill_story(response);
-                topAdapter.get_stories().add(story);
+                stories.add(story);
                 topAdapter.notifyDataSetChanged();
             }
         }, new Response.ErrorListener() {
@@ -140,7 +154,8 @@ public class API_Getter extends AppCompatActivity {
 
     public void clear_processing(){
         getter.cancel();
-        topAdapter.clear();
+//        topAdapter.clear();
+        stories.clear();
         topAdapter.notifyDataSetChanged();
     }
 }
