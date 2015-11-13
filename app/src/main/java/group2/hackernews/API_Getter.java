@@ -30,12 +30,8 @@ public class API_Getter extends AppCompatActivity {
     private ArrayList<Story> stories = new ArrayList<>();
     private String title_url = "https://hacker-news.firebaseio.com/v0/item/";
     private ListView topList;
-<<<<<<< HEAD
+    
     public API_Getter(ListView view, int viewOpt){
-=======
-
-    public API_Getter(ListView view){
->>>>>>> master
         this.topList = view;
 
         // I'm trying to modulize the adapter to work with the redesign - ZK
