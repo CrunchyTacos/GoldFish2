@@ -6,4 +6,5 @@
     <string name="logo">Logo To identify story</string>
     <string name="title_activity_big_fish">BigFishActivity</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="blueScaleString">blue_fish scale</string>
 </resources>

@@ -74,4 +74,24 @@ public class BigFishActivity extends AppCompatActivity {
         });
         getter.add(jsonObjectRequest);
     }
+
+    public void blueAction (View v){
+        Toast.makeText(getApplicationContext(),"Blue Scale Pressed", Toast.LENGTH_SHORT).show();
+    }
+
+    public void purpleAction (View v){
+        Toast.makeText(getApplicationContext(),"Purple Scale Pressed", Toast.LENGTH_SHORT).show();
+    }
+
+    public void redAction (View v){
+        Toast.makeText(getApplicationContext(),"Red Scale Pressed", Toast.LENGTH_SHORT).show();
+    }
+
+    public void greenAction (View v){
+        Toast.makeText(getApplicationContext(),"Green Scale Pressed", Toast.LENGTH_SHORT).show();
+    }
+
+    public void goldAction (View v){
+        Toast.makeText(getApplicationContext(),"Gold Scale Pressed", Toast.LENGTH_SHORT).show();
+    }
 }
