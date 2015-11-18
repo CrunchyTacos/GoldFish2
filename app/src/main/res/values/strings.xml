@@ -4,4 +4,5 @@
     <string name="title_activity_comment">CommentActivity</string>
     <string name="fish">fish</string>
     <string name="logo">Logo To identify story</string>
+    <string name="title_activity_big_fish">BigFishActivity</string>
 </resources>

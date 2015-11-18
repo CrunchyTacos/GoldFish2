@@ -68,29 +68,6 @@ public class MainActivity extends AppCompatActivity {
         //Set the list items to be clickable
         topList.setClickable(true);
 
-        //What the item does when the view is pressed and held
-        /*topList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
-            //Moved to Menu Option selected
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                //Get the story, create the Intent, put the comment id's into the intent,
-                //start the comment activity with the intent
-                Story o = (Story) topList.getItemAtPosition(position);
-                String string = o.getKids().toString();
-
-                intent = new Intent(MainActivity.this, CommentActivity.class);
-
-                if (o.getUri() == null)
-                    Toast.makeText(getApplicationContext(), "Can't open comments", Toast.LENGTH_LONG).show();
-
-                intent.putExtra("kids", string);
-                startActivity(intent);
-                return true;
-            }
-        });*/
-
         //What the item does when its a quick push
         topList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -147,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
             case 0: // Login menu option selected
                 browser1("https://news.ycombinator.com/login?goto=news");
                 return true;
+            case R.id.scale_button:
+                Intent intent = new Intent(MainActivity.this, BigFishActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.story_changer: //Cleaned up button changer to look nice with other menu options (Originally David, mod Zovin
                 processor.clear_processing();
                 switch (story_tracker){
@@ -171,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                         item.setTitle("Top");
                         break;
                 }
+
                 return super.onOptionsItemSelected(item);
 
             default:
@@ -216,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
             menu.add(0, 11, 1, "Up Vote"); // Up Vote item selection is 11
             menu.add(1, 12, 2, "Open in Browser"); // Browser open is 12
             menu.add(0, 13, 3, "Share"); //Open share is 13
+
 
             //Inflate the menu into view
             MenuInflater menuInflater = getMenuInflater();

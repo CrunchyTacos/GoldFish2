@@ -12,5 +12,10 @@
         android:title="Top"
         app:showAsAction="ifRoom"
         android:orderInCategory="0"/>
+    <item
+        android:id="@+id/scale_button"
+        android:title="My Goldfish"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="1"/>
 
 </menu>

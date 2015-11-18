@@ -42,7 +42,13 @@ public class StoryListAdapter extends ArrayAdapter<Story> {
         Story o = stories.get(position);
         TextView title = (TextView) v.findViewById(R.id.title);
         TextView by = (TextView) v.findViewById(R.id.by);
-        title.setText(Html.fromHtml(o.getTitle()));
+
+        try{
+            title.setText(Html.fromHtml(o.getTitle()));
+        } catch(NullPointerException e){
+            e.printStackTrace();
+        }
+
         if(o.getScore() != null && o.getKids() != null){
             by.setText(o.getScore() + " points by " + o.getBy() + "\n" + "comments: " + o.getKids().length());
         }

@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.android.volley.Request;
@@ -29,6 +30,7 @@ public class API_Getter extends AppCompatActivity {
     private BaseAdapter topAdapter;
     private ArrayList<Story> stories = new ArrayList<>();
     private String title_url = "https://hacker-news.firebaseio.com/v0/item/";
+
     private ListView topList;
     
     public API_Getter(ListView view, int viewOpt){
@@ -68,18 +70,24 @@ public class API_Getter extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                new AlertDialog.Builder(getApplicationContext())
-                        .setMessage(error.getMessage())
-                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // do nothing
-                            }
-                        })
-                        .show();
+                try{
+                    new AlertDialog.Builder(getApplicationContext())
+                            .setMessage(error.getMessage())
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // do nothing
+                                }
+                            })
+                            .show();
+                }catch(NullPointerException e){
+                    e.printStackTrace();
+                }
             }
+
         });
         getter.add(jsonArrayRequest);
     }
+
 
     //Gets a JSON Object from HackerNews and populates the list.
     public void get_JSON_from_HN_and_set_UI_elements(String id){
@@ -114,32 +122,25 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonObjectRequest);
     }
 
+
     public Story fill_story(JSONObject obj){
         Story story = new Story();
 
         try {
             if(obj.getString("type").equals("comment")){
-                try {
+                //This is for comments
                     story.setTitle(obj.getString("text"));
                     story.setBy(obj.getString("by"));
                     story.setKids(obj.getJSONArray("kids"));
-                } catch (JSONException e1) {
-                    e1.printStackTrace();
-                }
             } else{
-                //This is for normal stories
-                try {
+                //This is for stories
                     story.setScore(obj.getString("score"));
                     story.setBy(obj.getString("by"));
                     story.setTitle(obj.getString("title"));
-                    story.setUri(obj.getString("url"));
                     story.setType(obj.getString("type"));
                     story.setKids(obj.getJSONArray("kids"));
-                    story.setText(obj.getString("text"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
+                    story.setUri(obj.getString("url"));
+                    //story.setText(obj.getString("text"));
             }
         } catch (JSONException e) {
             e.printStackTrace();
