@@ -17,13 +17,92 @@
         android:layout_height="fill_parent"
         android:id="@+id/big_fish"
         android:contentDescription="@string/fish"
-        android:src="@drawable/fish_moving_small"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
+        android:src="@drawable/logo_fish"
         android:minHeight="90dp"
         android:minWidth="90dp"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/blueButton"
+        android:src="@drawable/blue_fish"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:maxHeight="90dp"
+        android:layout_marginBottom="48dp"
+        android:clickable="true"
+        android:contentDescription="@string/blueScaleString"
+        android:background="@android:drawable/btn_default"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="blueAction" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/purpleButton"
+        android:src="@drawable/purple_fish"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:maxHeight="90dp"
+        android:clickable="true"
+        android:contentDescription="@string/blueScaleString"
+        android:background="@android:drawable/btn_default"
+        android:layout_above="@+id/blueButton"
+        android:layout_alignStart="@+id/blueButton"
+        android:onClick="purpleAction" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/redButton"
+        android:src="@drawable/red_fish"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:maxHeight="90dp"
+        android:clickable="true"
+        android:contentDescription="@string/blueScaleString"
+        android:background="@android:drawable/btn_default"
+        android:layout_above="@+id/purpleButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="redAction" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/greenButton"
+        android:src="@drawable/green_fish"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:maxHeight="90dp"
+        android:clickable="true"
+        android:contentDescription="@string/blueScaleString"
+        android:background="@android:drawable/btn_default"
+        android:layout_above="@+id/redButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="greenAction" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/goldButton"
+        android:src="@drawable/gold_fish"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:maxHeight="90dp"
+        android:clickable="true"
+        android:contentDescription="@string/blueScaleString"
+        android:background="@android:drawable/btn_default"
+        android:layout_above="@+id/greenButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="goldAction" />
 
 </RelativeLayout>
