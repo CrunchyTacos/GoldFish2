@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         //Give list items ability to create context Menu - ZK
         registerForContextMenu(topList);
 
+        android.webkit.CookieManager.getInstance().removeAllCookies(null);
+
         progressDialog.dismiss();
     }
 
@@ -98,14 +101,17 @@ public class MainActivity extends AppCompatActivity {
 
         //adds another option to the options menu, this ideally needs to be done in the XML file
         menu.add(0, 0, 0, "Login").setShortcut('3', 'c');
+        menu.add(0, 1, 1, "Logout");
         return true;
     }
 
-    //open a browser using url
+    //open a webbrowser using url
     public void browser1(String url){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        startActivity(browserIntent);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.putExtra("URL", url);
+        startActivity(intent);
     }
+
     //created by Elizabeth Durkin
      //share a url and choose sharing method
     public void share(String url){
@@ -122,7 +128,10 @@ public class MainActivity extends AppCompatActivity {
         //If we add more options in the pulldown menu more cases will be added
         switch (item.getItemId()) {
             case 0: // Login menu option selected
-                browser1("https://news.ycombinator.com/login?goto=news");
+                loginpage();
+                return true;
+            case 1:
+                logout();
                 return true;
             case R.id.scale_button:
                 Intent intent = new Intent(MainActivity.this, BigFishActivity.class);
@@ -254,5 +263,19 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onContextItemSelected(item);
+    }
+
+    public void loginpage(){
+
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+
+        String URL = "https://news.ycombinator.com/login?goto=news";
+        intent.putExtra("URL", URL);
+        startActivity(intent);
+    }
+
+    public void logout(){
+        android.webkit.CookieManager.getInstance().removeAllCookies(null);
+        Toast.makeText(MainActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
     }
 }
