@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         //adds another option to the options menu, this ideally needs to be done in the XML file
         menu.add(0, 0, 0, "Login").setShortcut('3', 'c');
         menu.add(0, 1, 1, "Logout");
+        menu.add(0, 2, 2, "Show me the cookies");
         return true;
     }
 
@@ -132,6 +133,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case 1:
                 logout();
+                return true;
+            case 2:
+                CookieManager cookieManager = CookieManager.getInstance();
+                String cookies = cookieManager.getCookie("https://news.ycombinator.com/");
+                Toast.makeText(MainActivity.this, cookies, Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.scale_button:
                 Intent intent = new Intent(MainActivity.this, BigFishActivity.class);

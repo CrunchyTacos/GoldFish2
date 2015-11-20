@@ -6,9 +6,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -45,13 +48,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(loginwebview);
         loginwebview.loadUrl(URL);
 
+
+
     }
 
-    public class MyWebViewClient extends WebViewClient{
+    public class MyWebViewClient extends WebViewClient {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-           finish();return true;
+            finish();return true;
         }
+
     }
 }
