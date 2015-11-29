@@ -22,6 +22,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -128,15 +131,18 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonObjectRequest);
     }
 
-    public void upvote_story(final String cookies, String id) {
+    public void upvote_story(final String cookies, final String id) {
         String url = "https://news.ycombinator.com/item?id=" + id;
-        StringRequest postRequest = new StringRequest(Request.Method.GET, url,
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
                 {
                     @Override
                     public void onResponse(String response) {
-                        // response
-                        Log.d("Response", response);
+                        Document doc = Jsoup.parse(response);
+                        Element element = doc.getElementById("up_" + id);
+                        String href = element.attr("href");
+                        //Log.d("HREFHREF", href);
+                        push_the_button(href, cookies);
                     }
                 },
                 new Response.ErrorListener()
@@ -154,8 +160,35 @@ public class API_Getter extends AppCompatActivity {
                 return params;
             }
         };
-        getter.add(postRequest);
+        getter.add(getRequest);
+    }
 
+    public void push_the_button(final String href, final String cookies) {
+        String url = "https://news.ycombinator.com/" + href;
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("IGOTTARESPONSE", response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("ERROR", "error => " + error.toString());
+                    }
+                }
+        ){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("Cookie", cookies);
+                return params;
+            }
+        };
+        getter.add(getRequest);
     }
 
     public Story fill_story(JSONObject obj){
@@ -170,12 +203,13 @@ public class API_Getter extends AppCompatActivity {
                     story.setId(obj.getString("id"));
             } else{
                 //This is for stories
-                    story.setScore(obj.getString("score"));
-                    story.setBy(obj.getString("by"));
-                    story.setTitle(obj.getString("title"));
-                    story.setType(obj.getString("type"));
-                    story.setKids(obj.getJSONArray("kids"));
                 story.setId(obj.getString("id"));
+                story.setScore(obj.getString("score"));
+                story.setBy(obj.getString("by"));
+                story.setTitle(obj.getString("title"));
+                story.setType(obj.getString("type"));
+                story.setKids(obj.getJSONArray("kids"));
+
                     story.setUri(obj.getString("url"));
                     //story.setText(obj.getString("text"));
             }
