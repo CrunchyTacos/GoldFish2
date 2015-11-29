@@ -3,22 +3,29 @@ package group2.hackernews;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by david on 10/15/15.
@@ -88,7 +95,6 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonArrayRequest);
     }
 
-
     //Gets a JSON Object from HackerNews and populates the list.
     public void get_JSON_from_HN_and_set_UI_elements(String id){
         String uri = title_url + id + ".json";
@@ -122,6 +128,35 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonObjectRequest);
     }
 
+    public void upvote_story(final String cookies, String id) {
+        String url = "https://news.ycombinator.com/item?id=" + id;
+        StringRequest postRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        Log.d("Response", response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("ERROR", "error => " + error.toString());
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("Cookie", cookies);
+                return params;
+            }
+        };
+        getter.add(postRequest);
+
+    }
 
     public Story fill_story(JSONObject obj){
         Story story = new Story();
@@ -130,8 +165,9 @@ public class API_Getter extends AppCompatActivity {
             if(obj.getString("type").equals("comment")){
                 //This is for comments
                     story.setTitle(obj.getString("text"));
-                    story.setBy(obj.getString("by"));
-                    story.setKids(obj.getJSONArray("kids"));
+                story.setBy(obj.getString("by"));
+                story.setKids(obj.getJSONArray("kids"));
+                    story.setId(obj.getString("id"));
             } else{
                 //This is for stories
                     story.setScore(obj.getString("score"));
@@ -139,6 +175,7 @@ public class API_Getter extends AppCompatActivity {
                     story.setTitle(obj.getString("title"));
                     story.setType(obj.getString("type"));
                     story.setKids(obj.getJSONArray("kids"));
+                story.setId(obj.getString("id"));
                     story.setUri(obj.getString("url"));
                     //story.setText(obj.getString("text"));
             }

@@ -30,6 +30,7 @@ import android.widget.ListView;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.net.CookieHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -246,7 +247,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case 11: // Up vote option selected
-                Toast.makeText(getApplicationContext(), "Up Vote not made yet", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Up Vote not made yet", Toast.LENGTH_LONG).show();
+                CookieManager cookieManager = CookieManager.getInstance();
+                String cookies = cookieManager.getCookie("https://news.ycombinator.com/");
+                Story thing = (Story) topList.getItemAtPosition(adapterContextMenuInfo.position);
+                String id = thing.getId();
+                processor.upvote_story(cookies, id);
                 return true;
             case 12: // Open in browser selected
                 Story story_item1 = (Story) topList.getItemAtPosition(adapterContextMenuInfo.position);
