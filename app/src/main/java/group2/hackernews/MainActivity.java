@@ -38,9 +38,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ListView topList;
-    private ListView jobList;
     private API_Getter processor;
-    private ArrayList<Story> comments = new ArrayList<>();
     private Intent intent;
     private int story_tracker = 1;
 
@@ -48,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
     final static String askStories = "https://hacker-news.firebaseio.com/v0/askstories.json";
     final static String jobStories = "https://hacker-news.firebaseio.com/v0/jobstories.json";
     final static String newStories = "https://hacker-news.firebaseio.com/v0/newstories.json";
-
-    private StoryListAdapter jobAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,18 +95,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        //adds another option to the options menu, this ideally needs to be done in the XML file
         menu.add(0, 0, 0, "Login").setShortcut('3', 'c');
         menu.add(0, 1, 1, "Logout");
-        menu.add(0, 2, 2, "Show me the cookies");
         return true;
     }
 
     //open a webbrowser using url
     public void browser1(String url){
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        intent.putExtra("URL", url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
     }
 
@@ -134,11 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case 1:
                 logout();
-                return true;
-            case 2:
-                CookieManager cookieManager = CookieManager.getInstance();
-                String cookies = cookieManager.getCookie("https://news.ycombinator.com/");
-                Toast.makeText(MainActivity.this, cookies, Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.scale_button:
                 Intent intent = new Intent(MainActivity.this, BigFishActivity.class);
@@ -168,16 +155,13 @@ public class MainActivity extends AppCompatActivity {
                         item.setTitle("Top");
                         break;
                 }
-
                 return super.onOptionsItemSelected(item);
 
             default:
                 Toast.makeText(getApplicationContext(), "I don't know what you pressed", Toast.LENGTH_LONG).show();
                 break;
         }
-
         return onOptionsItemSelected(item);
-
     }
 
     /*
@@ -186,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+
         if(v.getId() == R.id.list){ //Check if list item is chosen
             //Setup to access list item information
             ListView listView = (ListView) v;
@@ -214,7 +199,6 @@ public class MainActivity extends AppCompatActivity {
             menu.add(0, 11, 1, "Up Vote"); // Up Vote item selection is 11
             menu.add(1, 12, 2, "Open in Browser"); // Browser open is 12
             menu.add(0, 13, 3, "Share"); //Open share is 13
-
 
             //Inflate the menu into view
             MenuInflater menuInflater = getMenuInflater();
@@ -247,16 +231,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case 11: // Up vote option selected
-                //Toast.makeText(getApplicationContext(), "Up Vote not made yet", Toast.LENGTH_LONG).show();
+                //Get the cookies saved from webview
                 CookieManager cookieManager = CookieManager.getInstance();
                 String cookies = cookieManager.getCookie("https://news.ycombinator.com/");
-                Story thing = (Story) topList.getItemAtPosition(adapterContextMenuInfo.position);
-                String id = thing.getId();
+                //Get the story ID
+                Story story = (Story) topList.getItemAtPosition(adapterContextMenuInfo.position);
+                String id = story.getId();
+                //upvote the story
                 processor.upvote_story(cookies, id);
                 return true;
             case 12: // Open in browser selected
                 Story story_item1 = (Story) topList.getItemAtPosition(adapterContextMenuInfo.position);
-                intent = new Intent(MainActivity.this, CommentActivity.class);
 
                 if (story_item1.getUri() == null)
                     Toast.makeText(getApplicationContext(), "Can't open article", Toast.LENGTH_LONG).show();
@@ -277,16 +262,18 @@ public class MainActivity extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
+    //by Matthew
     public void loginpage(){
 
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-
         String URL = "https://news.ycombinator.com/login?goto=news";
         intent.putExtra("URL", URL);
         startActivity(intent);
     }
 
+    //by Matthew
     public void logout(){
+
         android.webkit.CookieManager.getInstance().removeAllCookies(null);
         Toast.makeText(MainActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
     }

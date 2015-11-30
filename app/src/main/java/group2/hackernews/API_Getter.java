@@ -131,13 +131,16 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonObjectRequest);
     }
 
+    //BY DAVID DEERING
     public void upvote_story(final String cookies, final String id) {
+        //use the html from the comment page of the story since the mainpage html is too long for the parser
         String url = "https://news.ycombinator.com/item?id=" + id;
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
                 {
                     @Override
                     public void onResponse(String response) {
+                        //find the upvote element and use its href for another volley request to simulate the button press
                         Document doc = Jsoup.parse(response);
                         Element element = doc.getElementById("up_" + id);
                         String href = element.attr("href");
@@ -153,6 +156,7 @@ public class API_Getter extends AppCompatActivity {
                     }
                 }
         ) {
+            //put the cookies from logging in into the volley request
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  params = new HashMap<String, String>();
@@ -163,6 +167,7 @@ public class API_Getter extends AppCompatActivity {
         getter.add(getRequest);
     }
 
+    //BY DAVID DEERING
     public void push_the_button(final String href, final String cookies) {
         String url = "https://news.ycombinator.com/" + href;
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
@@ -170,7 +175,7 @@ public class API_Getter extends AppCompatActivity {
                 {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("IGOTTARESPONSE", response);
+                        //TODO disable the upvote option from the context menu
                     }
                 },
                 new Response.ErrorListener()
@@ -181,6 +186,7 @@ public class API_Getter extends AppCompatActivity {
                     }
                 }
         ){
+            //put the cookies from logging in into the volley request
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  params = new HashMap<String, String>();
@@ -191,16 +197,17 @@ public class API_Getter extends AppCompatActivity {
         getter.add(getRequest);
     }
 
+    //BY DAVID DEERING
     public Story fill_story(JSONObject obj){
         Story story = new Story();
 
         try {
             if(obj.getString("type").equals("comment")){
                 //This is for comments
-                    story.setTitle(obj.getString("text"));
+                story.setTitle(obj.getString("text"));
                 story.setBy(obj.getString("by"));
                 story.setKids(obj.getJSONArray("kids"));
-                    story.setId(obj.getString("id"));
+                story.setId(obj.getString("id"));
             } else{
                 //This is for stories
                 story.setId(obj.getString("id"));
@@ -209,8 +216,7 @@ public class API_Getter extends AppCompatActivity {
                 story.setTitle(obj.getString("title"));
                 story.setType(obj.getString("type"));
                 story.setKids(obj.getJSONArray("kids"));
-
-                    story.setUri(obj.getString("url"));
+                story.setUri(obj.getString("url"));
                     //story.setText(obj.getString("text"));
             }
         } catch (JSONException e) {

@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+//by Matthew
 public class LoginActivity extends AppCompatActivity {
 
     private int loginflag = 0;
@@ -47,17 +48,14 @@ public class LoginActivity extends AppCompatActivity {
         loginwebview.setWebViewClient(new MyWebViewClient());
         setContentView(loginwebview);
         loginwebview.loadUrl(URL);
-
-
-
     }
 
     public class MyWebViewClient extends WebViewClient {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            finish();return true;
+            finish();
+            return true;
         }
-
     }
 }
