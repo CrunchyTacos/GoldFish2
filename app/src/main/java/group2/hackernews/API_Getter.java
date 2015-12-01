@@ -3,22 +3,32 @@ package group2.hackernews;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by david on 10/15/15.
@@ -88,7 +98,6 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonArrayRequest);
     }
 
-
     //Gets a JSON Object from HackerNews and populates the list.
     public void get_JSON_from_HN_and_set_UI_elements(String id){
         String uri = title_url + id + ".json";
@@ -122,24 +131,92 @@ public class API_Getter extends AppCompatActivity {
         getter.add(jsonObjectRequest);
     }
 
+    //BY DAVID DEERING
+    public void upvote_story(final String cookies, final String id) {
+        //use the html from the comment page of the story since the mainpage html is too long for the parser
+        String url = "https://news.ycombinator.com/item?id=" + id;
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        //find the upvote element and use its href for another volley request to simulate the button press
+                        Document doc = Jsoup.parse(response);
+                        Element element = doc.getElementById("up_" + id);
+                        String href = element.attr("href");
+                        //Log.d("HREFHREF", href);
+                        push_the_button(href, cookies);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("ERROR", "error => " + error.toString());
+                    }
+                }
+        ) {
+            //put the cookies from logging in into the volley request
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("Cookie", cookies);
+                return params;
+            }
+        };
+        getter.add(getRequest);
+    }
 
+    //BY DAVID DEERING
+    public void push_the_button(final String href, final String cookies) {
+        String url = "https://news.ycombinator.com/" + href;
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        //TODO disable the upvote option from the context menu
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("ERROR", "error => " + error.toString());
+                    }
+                }
+        ){
+            //put the cookies from logging in into the volley request
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("Cookie", cookies);
+                return params;
+            }
+        };
+        getter.add(getRequest);
+    }
+
+    //BY DAVID DEERING
     public Story fill_story(JSONObject obj){
         Story story = new Story();
-
+        story.setUpvoted(false);
         try {
             if(obj.getString("type").equals("comment")){
                 //This is for comments
-                    story.setTitle(obj.getString("text"));
-                    story.setBy(obj.getString("by"));
-                    story.setKids(obj.getJSONArray("kids"));
+                story.setTitle(obj.getString("text"));
+                story.setBy(obj.getString("by"));
+                story.setKids(obj.getJSONArray("kids"));
+                story.setId(obj.getString("id"));
             } else{
                 //This is for stories
-                    story.setScore(obj.getString("score"));
-                    story.setBy(obj.getString("by"));
-                    story.setTitle(obj.getString("title"));
-                    story.setType(obj.getString("type"));
-                    story.setKids(obj.getJSONArray("kids"));
-                    story.setUri(obj.getString("url"));
+                story.setId(obj.getString("id"));
+                story.setScore(obj.getString("score"));
+                story.setBy(obj.getString("by"));
+                story.setTitle(obj.getString("title"));
+                story.setType(obj.getString("type"));
+                story.setKids(obj.getJSONArray("kids"));
+                story.setUri(obj.getString("url"));
                     //story.setText(obj.getString("text"));
             }
         } catch (JSONException e) {

@@ -79,7 +79,6 @@ public class GoldfishUnitTests {
         assertNotNull(story.getBy());
         assertNotNull(story.getKids());
         assertNotNull(story.getScore());
-        assertNotNull(story.getText());
         assertNotNull(story.getTitle());
         assertNotNull(story.getType());
         assertNotNull(story.getUri());
