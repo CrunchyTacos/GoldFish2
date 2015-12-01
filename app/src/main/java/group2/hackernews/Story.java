@@ -15,6 +15,15 @@ class Story {
     private String text;
     private String type;
     private String id;
+    private boolean upvoted;
+
+    public boolean getUpvoted(){
+        return upvoted;
+    }
+
+    public void setUpvoted(boolean upvoted) {
+        this.upvoted = upvoted;
+    }
 
     public String getId() {
         return id;

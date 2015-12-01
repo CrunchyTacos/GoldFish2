@@ -200,7 +200,7 @@ public class API_Getter extends AppCompatActivity {
     //BY DAVID DEERING
     public Story fill_story(JSONObject obj){
         Story story = new Story();
-
+        story.setUpvoted(false);
         try {
             if(obj.getString("type").equals("comment")){
                 //This is for comments
