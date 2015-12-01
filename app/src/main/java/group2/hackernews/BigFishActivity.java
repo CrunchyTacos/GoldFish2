@@ -9,7 +9,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.internal.widget.ThemeUtils;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -39,6 +41,10 @@ public class BigFishActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         settings = getApplicationContext().getSharedPreferences("theme", 0);
         sTheme = settings.getInt("sTheme", 0);
+        CookieManager cookieManager = CookieManager.getInstance();
+        final String cookies = cookieManager.getCookie("https://news.ycombinator.com/");
+
+
         switch (sTheme){
             default:
             case BLUE:
@@ -66,7 +72,11 @@ public class BigFishActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                get_scales("jl");
+                String[] first = cookies.split(";");
+                String[] second = first[1].split("=");
+                String[] third = second[1].split("&");
+                String user = third[0];
+                get_scales("user");
             }
         });
 
@@ -80,7 +90,17 @@ public class BigFishActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    Toast.makeText(BigFishActivity.this, response.getString("karma"), Toast.LENGTH_SHORT).show();
+                    int karma = Integer.parseInt(response.getString("karma"));
+                    int level = 1;
+                    if(karma > 5 && karma < 10) level = 2;
+                    else if (karma < 20) level = 3;
+                    else if (karma < 40) level = 4;
+                    else if (karma < 80) level = 5;
+                    else if (karma < 160) level = 6;
+                    else if (karma < 320) level = 7;
+                    else if (karma < 640) level = 8;
+                    else level = 9;
+                    Toast.makeText(BigFishActivity.this, "Fish Level:  " + level, Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

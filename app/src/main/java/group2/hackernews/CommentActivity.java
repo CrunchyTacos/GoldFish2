@@ -77,16 +77,6 @@ public class CommentActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //This currently does nothing, but I don't want to remove it yet in case we decide to implement more functionality
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

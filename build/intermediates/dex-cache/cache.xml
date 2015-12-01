@@ -2,11 +2,39 @@
 <items version="2" >
 
     <item
+        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/classes-300647f50f971ed225bc3ca14db965f7398f6392.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/classes-7544cd0c924e5abec913b3fc97de4943bc7acf15.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-e4e91722106722362d7bd27b4ed0a08f86550916.jar" />
+    </item>
+    <item
         jar="/home/david/AndroidStudioProjects/GoldFish2/app/libs/realm-0.83.0.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="fcc995aa3a075352049ed77afb34c61559a73931">
         <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/realm-0.83.0-1d795471a29ebe364d3b2a0d3decee607014d2cd.jar" />
+    </item>
+    <item
+        jar="/home/david/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.8.3/65fd012581ded67bc20945d85c32b4598c3a9cf1/jsoup-1.8.3.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="65fd012581ded67bc20945d85c32b4598c3a9cf1">
+        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/jsoup-1.8.3-9afda4c60ed6b69b202ea65847ba7f2728816c26.jar" />
     </item>
     <item
         jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
@@ -23,39 +51,11 @@
         <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-e7eeb93b02c46beadba37c7cf2880e3f1b58004e.jar" />
     </item>
     <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.8.3/65fd012581ded67bc20945d85c32b4598c3a9cf1/jsoup-1.8.3.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="65fd012581ded67bc20945d85c32b4598c3a9cf1">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/jsoup-1.8.3-9afda4c60ed6b69b202ea65847ba7f2728816c26.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/classes-7544cd0c924e5abec913b3fc97de4943bc7acf15.jar" />
-    </item>
-    <item
         jar="/home/david/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.18/38da306aafee11459cd935a01d2c92a98dc670a4/library-1.0.18.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="38da306aafee11459cd935a01d2c92a98dc670a4">
         <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/library-1.0.18-b81ea53ec3eda5fb9c9d43ed47587be4ef334752.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-e4e91722106722362d7bd27b4ed0a08f86550916.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/debug/classes-300647f50f971ed225bc3ca14db965f7398f6392.jar" />
     </item>
 
 </items>
