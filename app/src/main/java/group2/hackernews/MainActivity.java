@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.widget.AdapterView;
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Story> comments = new ArrayList<>();
     private Intent intent;
     private int story_tracker = 1;
+    private SharedPreferences settings;
+
 
     final static String topStories = "https://hacker-news.firebaseio.com/v0/topstories.json";
     final static String askStories = "https://hacker-news.firebaseio.com/v0/askstories.json";
@@ -53,6 +57,34 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        settings = getApplicationContext().getSharedPreferences("theme",0);
+        int sTheme;
+        try {
+            sTheme = settings.getInt("sTheme", 0);
+        } catch (NullPointerException e){
+            sTheme = 0;
+        }
+
+        switch (sTheme){
+            default:
+            case BigFishActivity.BLUE:
+                setTheme(R.style.BlueFish);
+                break;
+            case BigFishActivity.RED:
+                setTheme(R.style.RedFish);
+                break;
+            case BigFishActivity.GREEN:
+                setTheme(R.style.GreenFish);
+                break;
+            case BigFishActivity.GOLD:
+                setTheme(R.style.GoldFish);
+                break;
+            case BigFishActivity.PURPLE:
+                setTheme(R.style.PurpleFish);
+                break;
+        }
+
         setContentView(R.layout.activity_main);
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Loading", "Loading...");
@@ -76,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 //Get the story, start a browser at the url in the story
                 Story o = (Story) topList.getItemAtPosition(position);
-                intent = new Intent(MainActivity.this, CommentActivity.class);
 
                 if (o.getUri() == null)
                     Toast.makeText(getApplicationContext(), "Can't open article", Toast.LENGTH_LONG).show();

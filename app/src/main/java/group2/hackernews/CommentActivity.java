@@ -1,5 +1,6 @@
 package group2.hackernews;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,9 +17,37 @@ public class CommentActivity extends AppCompatActivity {
 
     private API_Getter processor;
     private ListView commentList;
+    private SharedPreferences settings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        settings = getSharedPreferences("theme",0);
+        int sTheme;
+        try {
+            sTheme = settings.getInt("sTheme", 0);
+        } catch (NullPointerException e){
+            sTheme = 0;
+        }
+
+        switch (sTheme){
+            default:
+            case BigFishActivity.BLUE:
+                setTheme(R.style.BlueFish);
+                break;
+            case BigFishActivity.RED:
+                setTheme(R.style.RedFish);
+                break;
+            case BigFishActivity.GREEN:
+                setTheme(R.style.GreenFish);
+                break;
+            case BigFishActivity.GOLD:
+                setTheme(R.style.GoldFish);
+                break;
+            case BigFishActivity.PURPLE:
+                setTheme(R.style.PurpleFish);
+                break;
+        }
+
         setContentView(R.layout.activity_comment);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

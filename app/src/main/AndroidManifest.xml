@@ -14,8 +14,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="GoldFish"
-            android:theme="@style/GoldFish" >
+            android:label="GoldFish">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

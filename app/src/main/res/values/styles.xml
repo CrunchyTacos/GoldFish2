@@ -18,5 +18,39 @@
     <style name="GoldFish" parent="@style/AppTheme">
         </style>
 
+    <style name="BlueFish" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/bluePrimary</item>
+        <item name="colorPrimaryDark">@color/bluePrimaryDark</item>
+        <item name="colorAccent">@color/blueAccent</item>
+        <item name="android:navigationBarColor">@color/bluePrimaryDark</item>
+        <item name="android:statusBarColor">@color/bluePrimaryDark</item>
+    </style>
+
+    <style name="RedFish" parent="Theme.AppCompat.Light.DarkActionBar" >
+        <item name="colorPrimary">@color/redPrimary</item>
+        <item name="colorPrimaryDark">@color/redPrimaryDark</item>
+        <item name="colorAccent">@color/redAccent</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text_material_dark</item>
+        <item name="android:navigationBarColor">@color/redPrimaryDark</item>
+        <item name="android:statusBarColor">@color/redPrimaryDark</item>
+    </style>
+
+    <style name="PurpleFish" parent="Theme.AppCompat.Light.DarkActionBar" >
+        <item name="colorPrimary">@color/purplePrimary</item>
+        <item name="colorPrimaryDark">@color/purpleDark</item>
+        <item name="colorAccent">@color/purpleAccent</item>
+        <item name="android:navigationBarColor">@color/purpleDark</item>
+        <item name="android:statusBarColor">@color/purpleDark</item>
+    </style>
+
+    <style name="GreenFish" parent="Theme.AppCompat.Light.DarkActionBar" >
+        <item name="colorPrimary">@color/greenPrimary</item>
+        <item name="colorPrimaryDark">@color/greenPrimaryDark</item>
+        <item name="colorAccent">@color/greenAccent</item>
+        <item name="android:navigationBarColor">@color/greenPrimaryDark</item>
+        <item name="android:statusBarColor">@color/greenPrimaryDark</item>
+    </style>
+
 
 </resources>

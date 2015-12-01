@@ -2,130 +2,53 @@
 <items version="2" >
 
     <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"
+        jar="C:\Users\Zovin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/junit-4.12-c0a166162f24ac2a8f667af818374a1160ced3ef.jar" />
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-e1177518e77d5887a47e6ecc286fce9fdfd8333c.jar" />
     </item>
     <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support.test/runner/0.4.1/jars/classes.jar"
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\libs\realm-0.83.0.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="f607369e68cb756b3f8f523403e3d80433a68aa1">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/classes-2d8633f9d525d38d6992eb8c1a6ab83872c2c021.jar" />
+        sha1="fcc995aa3a075352049ed77afb34c61559a73931">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\pre-dexed\debug\realm-0.83.0-ac089ff721d576bf09e0e24613babe0f7f75759e.jar" />
     </item>
     <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/javax.inject-1-0073f79bb9b117350236eedee8e5b63ff1e1c477.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.2.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="25a72389e79fbac13f78412a4a6ffacc1cdb0673">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/classes-6283a3515c01d1487b20364e2b13a53155070cd7.jar" />
-    </item>
-    <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/com.google.android.apps.common.testing.accessibility.framework/accessibility-test-framework/2.0/7837f95bdff9f797003454247fef02b78d49ae75/accessibility-test-framework-2.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="7837f95bdff9f797003454247fef02b78d49ae75">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/accessibility-test-framework-2.0-d76474c59cb7686085aa21f85295a10736bb63ab.jar" />
-    </item>
-    <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4785a3c21320980282f9f33d0d1264a69040538f">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/hamcrest-library-1.3-38ec26868eeec21ba9cf5288804ee16018514b65.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-idling-resource/2.2.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="83e81537012f1975aa902eedbdb8da5aa515aea5">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/classes-febf771ec08086121a44374ed2d7bb19704452f0.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support.test/exposed-instrumentation-api-publish/0.4.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="e1d90a3498ab7a4b68ea6e936e71cf7f4e95453f">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/classes-209a979a466a9fa698415e88ceff71a73b622a0f.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-contrib/2.2.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="3a0fb44da5f5919b3fc86c9d1e103f59be5b58cf">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/classes-09ba6e265bdd101e59b9b7f2c2339ea038a99712.jar" />
-    </item>
-    <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/hamcrest-core-1.3-b3c62e0a5e8e400bf4648e3623564e6834428548.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/internal_impl-23.0.1-e4e91722106722362d7bd27b4ed0a08f86550916.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/classes-4a77f2deb444190eb47910c73c63bae0e454ad24.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.4.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="e4805433aedef15e73a7eedf7e3496eb4363a583">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/classes-d144826eabc981cbdf19b1f451774ce0c4132797.jar" />
-    </item>
-    <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.1.1/67ff45d9ae02e583d0f9b3432a5ebbe05c30c966/javawriter-2.1.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/javawriter-2.1.1-8106aa1d2f7ec54e249adcbf126a2f748d2f8a41.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/classes-300647f50f971ed225bc3ca14db965f7398f6392.jar" />
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\pre-dexed\debug\classes-f4653717e6b4479f3d703e1cb9beb6fa1e294b8a.jar" />
     </item>
     <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/jsr305-2.0.1-3c6c7fcc114dd0ef9eaa86bb596baafe34fcf192.jar" />
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\pre-dexed\debug\classes-f66408e1d8196f8af0587be6a766dfafbc3e96df.jar" />
     </item>
     <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar"
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="479c1e06db31c432330183f5cae684163f186146">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/javax.annotation-api-1.2-d12a9990bb6e091f6fe770ccfd209f1e8b6ff320.jar" />
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-9f05917f995cd58fa0216adc92801adda8c4f7e4.jar" />
     </item>
     <item
-        jar="/home/david/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-integration/1.3/5de0c73fef18917cd85d0ab70bb23818685e4dfd/hamcrest-integration-1.3.jar"
+        jar="C:\Users\Zovin\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.18\38da306aafee11459cd935a01d2c92a98dc670a4\library-1.0.18.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="5de0c73fef18917cd85d0ab70bb23818685e4dfd">
-        <dex dex="/home/david/AndroidStudioProjects/GoldFish2/app/build/intermediates/pre-dexed/androidTest/debug/hamcrest-integration-1.3-873359f106f1b3a95f9457bdccc4fd2ae4d18178.jar" />
+        sha1="38da306aafee11459cd935a01d2c92a98dc670a4">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\pre-dexed\debug\library-1.0.18-32b73b3cb9d7c5322f5c7f8100416124ddfd1cbd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\Users\Zovin\OneDrive\Documents\StudioProjects\GoldFish2\app\build\intermediates\pre-dexed\debug\classes-c4a22ddb28d78ccd12ac3996e68f58d6ef887e6d.jar" />
     </item>
 
 </items>

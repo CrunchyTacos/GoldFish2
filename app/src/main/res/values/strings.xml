@@ -7,4 +7,6 @@
     <string name="title_activity_big_fish">BigFishActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="blueScaleString">blue_fish scale</string>
+    <string name="titleString">WebView</string>
+    <string name="sTheme">1</string>
 </resources>
